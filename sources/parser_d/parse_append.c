@@ -3,37 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parse_append.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexa <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 00:06:46 by alexa             #+#    #+#             */
-/*   Updated: 2022/11/10 00:08:37 by alexa            ###   ########.fr       */
+/*   Created: 2025/07/11 20:25:27 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:25:34 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*
-	***APPEND***
-	Redirection of output in append mode causes the file whose name results 
-	from the expansion of word to be opened for appending on file descriptor n, 
-	or the standard output (fd 1) if n is not specified. 
-	If the file does not exist it is created.
-
-	The general format for appending output is: [n]>>word.
-
-*/
-
-/* open_outfile_append:
-*	Opens an outfile in append mode. If an outfile was already set, frees it
-*	and overwrites it. If a previous infile or outfile open failed (file does
-*	not exist or permission denied), does not open any further output file.
-*
-*	Ex.:
-*		echo hello > forbidden_file >> test
-*		echo hello >> forbidden_file >> test
-*		< forbidden_file cat >> test
-*	In these 3 cases, the test file should not be opened or created.
-*/
 static void	open_outfile_append(t_io_fds *io, char *file, char *var_filename)
 {
 	if (!remove_old_file_ref(io, false))

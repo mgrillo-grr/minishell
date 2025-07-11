@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 14:16:24 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/03 16:32:30 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/07/11 20:30:19 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:30:21 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-	DESCRIPTION :
-	The function ft_strlcpy copies up to size - 1 characters from the given
-	string src to the given string dst, nul-terminating the result.
-
-	Note : space for the terminating \0 character must be included in dstsize.
-
-	RETURN VALUE :
-	The total length of the string that it tried to create : the length of
-	src, with the goal to facilitate truncaction detection.
-*/
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

@@ -1,10 +1,17 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env_builtin.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/11 20:19:48 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:19:49 by mdios-el         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "minishell.h"
 
-/* env_builtin:
-*	Executes the builtin env command: Prints the environment variables.
-*/
 int	env_builtin(t_data *data, char **args)
 {
 	int	i;

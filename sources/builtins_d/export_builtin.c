@@ -1,14 +1,17 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export_builtin.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/11 20:20:19 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:20:20 by mdios-el         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "minishell.h"
 
-/* get_key_value_pair:
-*	Separates the given argument into a key-value pair
-*	for the environment variable.
-*	Returns an array of 2 strings containing the key and the
-*	value of the new environment variable.
-*	Returns NULL in case of error.
-*/
 static char	**get_key_value_pair(char *arg)
 {
 	char	**tmp;
@@ -22,11 +25,6 @@ static char	**get_key_value_pair(char *arg)
 	return (tmp);
 }
 
-/* export_builtin:
-*	Adds the given variables to the environment variables.
-*	Returns 0 if all args were successfully added to env,
-*	or 1 if one or more args were not added to env.
-*/
 int	export_builtin(t_data *data, char **args)
 {
 	int		i;

@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 18:06:58 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:48:58 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/07/11 20:36:48 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:36:49 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-	DESCRIPTION :
-	The function ft_atoi converts a string into an int.
-
-	RETURN VALUE :
-	The converted int.
-*/
 
 int	ft_atoi(const char *str)
 {

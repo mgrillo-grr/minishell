@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_user_input.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexa <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 00:01:18 by alexa             #+#    #+#             */
-/*   Updated: 2022/11/10 00:01:22 by alexa            ###   ########.fr       */
+/*   Created: 2025/07/11 20:23:04 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:23:13 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ static bool	input_is_space(char *input)
 	return (true);
 }
 
-/* parse_user_input:
-*	Tokenizes and parses user input into a structure for execution.
-*	Returns true if successful, false in case of error.
-*/
 bool	parse_user_input(t_data *data)
 {
 	if (data->user_input == NULL)

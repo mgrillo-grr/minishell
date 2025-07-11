@@ -1,11 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cd_builtin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/11 20:19:13 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:19:25 by mdios-el         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "minishell.h"
 
-/* update_wds:
-*	Updates the PWD and OLDPWD in the environment after a directory change.
-*	A copy of the paths are stored internally for use in case the environment
-*	variables are unset.
-*/
 static void	update_wds(t_data *data, char *wd)
 {
 	set_env_var(data, "OLDPWD", get_env_var_value(data->env, "PWD"));
@@ -23,12 +29,6 @@ static void	update_wds(t_data *data, char *wd)
 	free_ptr(wd);
 }
 
-/* chdir_errno_mod:
-*	chdir can sometimes set errno to ESTALE ("Stale file handle")
-*	when a parent directory is removed on some systems. This is due
-*	to the inode table entry being recycled. This is a fix to display
-*	"no such file or directory" error instead.
-*/
 static	bool	chdir_errno_mod(char *path)
 {
 	if (errno == ESTALE)
@@ -37,11 +37,6 @@ static	bool	chdir_errno_mod(char *path)
 	return (false);
 }
 
-/* change_dir:
-*	Changes the current working directory and updates the
-*	OLDPWD environment variable.
-*	Returns 1 on success, 0 on failure.
-*/
 static bool	change_dir(t_data *data, char *path)
 {
 	char	*ret;
@@ -68,10 +63,6 @@ static bool	change_dir(t_data *data, char *path)
 	return (true);
 }
 
-/* cd_builtin:
-*	Executes the builtin cd command by changing the working directory.
-*	Returns 0 on success, 1 on failure.
-*/
 int	cd_builtin(t_data *data, char **args)
 {
 	char	*path;

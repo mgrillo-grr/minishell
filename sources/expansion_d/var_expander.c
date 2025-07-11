@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   var_expander.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 02:35:14 by alexa             #+#    #+#             */
-/*   Updated: 2022/11/07 17:03:43 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/07/11 20:22:31 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:22:40 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-/*
-*  After splitting the user's input into tokens, we have to expand 
-*  the variables. After the expansion is done, quote characters are
-*  removed from the original word unless they are between quotes.
-*/
 
 static void	update_status(t_token **token_node, char c)
 {
@@ -79,11 +73,6 @@ int	var_expander(t_data *data, t_token **token_lst)
 	return (0);
 }
 
-/* var_expander_heredoc:
-*	Heredoc variant of var_expander. Replaces a string containing an
-*	environment variable, like $USER with its corresponding value.
-*	Returns the replaced string. May return NULL on error.
-*/
 char	*var_expander_heredoc(t_data *data, char *str)
 {
 	int	i;

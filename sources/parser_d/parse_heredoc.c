@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parse_heredoc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexa <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 00:09:01 by alexa             #+#    #+#             */
-/*   Updated: 2022/11/10 00:09:19 by alexa            ###   ########.fr       */
+/*   Created: 2025/07/11 20:25:57 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:26:13 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/* get_heredoc:
-*	Opens a heredoc awaiting user input.
-*	Translates any given variables into	their environment values.
-*	Returns false in case of error, true if successful.
-*/
 bool	get_heredoc(t_data *data, t_io_fds *io)
 {
 	int		tmp_fd;
@@ -29,10 +24,6 @@ bool	get_heredoc(t_data *data, t_io_fds *io)
 	return (ret);
 }
 
-/* get_heredoc_name:
-*	Generates a unique name for the current heredoc.
-*	Returns the new heredoc name.
-*/
 static char	*get_heredoc_name(void)
 {
 	static int	i;
@@ -48,10 +39,6 @@ static char	*get_heredoc_name(void)
 	return (name);
 }
 
-/* get_delim:
-*	Returns the heredoc delimiter. Quotes are removed if present
-*	around the delimiter, and the quotes boolean is set to true.
-*/
 static char	*get_delim(char *delim, bool *quotes)
 {
 	int	len;
@@ -66,10 +53,6 @@ static char	*get_delim(char *delim, bool *quotes)
 	return (ft_strdup(delim));
 }
 
-/* parse_heredoc:
-*	Creates a temporary heredoc file which will be filled with
-*	user input.
-*/
 void	parse_heredoc(t_data *data, t_command **last_cmd, t_token **token_lst)
 {
 	t_token		*temp;

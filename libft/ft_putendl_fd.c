@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 06:13:20 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/07/20 17:10:10 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/07/11 20:31:50 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:31:51 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-	DESCRIPTION :
-	The function ft_putendl_fd writes the given string to the given
-	file descriptor followed by a new line.
-
-	RETURN VALUE :
-	None.
-*/
 
 void	ft_putendl_fd(char *s, int fd)
 {

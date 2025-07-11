@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 23:07:33 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/03 16:33:24 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/07/11 20:29:43 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:29:45 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-	DESCRIPTION :
-	The function ft_strnstr searches the first n bytes of the given string
-	s1 for the first occurence of the full string s2.
-	Characters that appear after \0 are not searched.
-
-	RETURN VALUE :
-	A pointer to the first character of the first occurrence of s2.
-	A pointer to s1 if s2 is empty.
-	NULL if s2 occurs nowhere in s1.
-*/
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {

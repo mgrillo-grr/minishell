@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   tokenization.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexa <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 12:31:15 by alexa             #+#    #+#             */
-/*   Updated: 2022/09/20 12:31:43 by alexa            ###   ########.fr       */
+/*   Created: 2025/07/11 20:23:36 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:23:40 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-/*
-*	This function divides the given string (user input) into two
-*   types of tokens : words or separators (pipes, heredoc , etc)
-*	It checks each char of the string and defines if it is a separator or 
-*   a word and then saves the token in a linked list.
-*   Also checks if there is an unclosed quote error and defines which
-*   separators will be evaluated following the single or double quoting rules:
-*   
-*   -Without quotes, bash tries to evaluate all special characters
-*   -Single quotes (') prevent all evaluation
-*   -Double quotes (") prevent most evaluation,
-*		but notably not the evaluation of variables
-*
-*/
 
 int	tokenization(t_data *data, char *str)
 {

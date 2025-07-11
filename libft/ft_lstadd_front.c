@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:10:05 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/07 12:13:58 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/07/11 20:34:01 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:34:02 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-	DESCRIPTION :
-	The function ft_lstadd_front adds a new node to the front of a list:
-		[NEW]->[.]->[.]->[.]->[NULL]
-
-	RETURN VALUE :
-	None.
-*/
 
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {

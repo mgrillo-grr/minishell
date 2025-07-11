@@ -3,25 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fill_args_echo.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexa <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 00:02:55 by alexa             #+#    #+#             */
-/*   Updated: 2022/11/10 00:03:12 by alexa            ###   ########.fr       */
+/*   Created: 2022/11/10 00:02:55 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:24:47 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*
-**  This function deals with the specific case when the command is "echo"
-**    - It allocates the array of arguments thanks to the count_args function
-**    - It loops through the tokens list while the nodes are of type
-**        VAR or WORD: 
-**         * If "bool join = true" in the token structure is true : we join all
-**           the tokens of type VAR that have the setting "join = true"
-**         * if "join = false" we just fill the last_cmd_>args[i] 
-**            with the current token.
-*/
 int	create_args_echo_mode(t_token **token_node, t_command *last_cmd)
 {
 	int		nb_args;

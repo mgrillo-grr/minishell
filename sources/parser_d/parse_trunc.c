@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_trunc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexa <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 00:16:18 by alexa             #+#    #+#             */
-/*   Updated: 2022/11/10 00:16:26 by alexa            ###   ########.fr       */
+/*   Created: 2025/07/11 20:26:38 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:26:46 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-/*
-	TRUNC -> Redirection of output.
-	The file whose name results from the expansion of word has to be opened 
-    in writing mode on fd n or the standard output (fd 1) if n is not specified.
-    If the file does not exist it is created;
-    if it does exist it is truncated to 0 size.
-
-	The general format for redirecting output is: [n]>[|]word
-*/
 
 char	*get_relative_path(char *file_to_open)
 {
@@ -35,17 +25,6 @@ char	*get_relative_path(char *file_to_open)
 	return (ret);
 }
 
-/* open_outfile_trunc:
-*	Opens an outfile in truncated mode. If an outfile was already set, frees it
-*	and overwrites it. If a previous infile or outfile open failed (file does
-*	not exist or permission denied), does not open any further output file.
-*
-*	Ex.:
-*		echo hello > forbidden_file > test
-*		echo hello >> forbidden_file > test
-*		< forbidden_file cat > test
-*	In these 3 cases, the test file should not be opened or created.
-*/
 static void	open_outfile_trunc(t_io_fds *io, char *file, char *var_filename)
 {
 	if (!remove_old_file_ref(io, false))

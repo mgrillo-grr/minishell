@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_args_default.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexa <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 00:05:49 by alexa             #+#    #+#             */
-/*   Updated: 2022/11/10 00:45:21 by alexa            ###   ########.fr       */
+/*   Created: 2025/07/11 20:24:07 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:24:16 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,6 @@ int	count_arguments(t_token *temp)
 	return (i);
 }
 
-/*
-**  This function fills the array of arguments of the last_cmd by default mode:
-**    - It allocates the array of arguments thanks to the count_args function
-**    - It loops through the tokens list while the nodes are of type
-**        VAR or WORD, and fills last_cmd->args[i] with the current token 
-*/
 
 int	create_args_default_mode(t_token **token_node, t_command *last_cmd)
 {
@@ -108,13 +102,6 @@ int	add_args_default_mode(t_token **token_node, t_command *last_cmd)
 	*token_node = temp;
 	return (SUCCESS);
 }
-
-/*
-**  This function fills the arguments in the command structure (command->args)
-**  It has two modes: 
-**    - The "echo mode" if the command is the builtin "echo"
-**    - The default mode for all the other cases
-*/
 
 int	fill_args(t_token **token_node, t_command *last_cmd)
 {

@@ -1,11 +1,17 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit_builtin.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/11 20:20:08 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:20:09 by mdios-el         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "minishell.h"
 
-/* check_out_of_range:
-*	Checks if the number goes over LONG_MAX or LONG_MIN.
-*	Sets an error boolean to true if the number is out of range, false if not.
-*/
 static bool	check_out_of_range(int neg, unsigned long long num, bool *error)
 {
 	if ((neg == 1 && num > LONG_MAX)
@@ -14,11 +20,6 @@ static bool	check_out_of_range(int neg, unsigned long long num, bool *error)
 	return (*error);
 }
 
-/* ft_atoi_long:
-*	Transforms a string comprised of digits into a long integer.
-*	Returns the long integer. In case of error, sets an error boolean
-*	to true.
-*/
 static int	ft_atoi_long(const char *str, bool *error)
 {
 	unsigned long long	num;
@@ -47,12 +48,6 @@ static int	ft_atoi_long(const char *str, bool *error)
 	return (num * neg);
 }
 
-/* get_exit_code:
-*	Gets the exit code from the arguments given to the exit builtin.
-*	Returns 0 if no arguments were provided.
-*	Returns 2 in case argument is not digits.
-*	Returns the numeric exit code on success.
-*/
 static int	get_exit_code(char *arg, bool *error)
 {
 	unsigned long long	i;
@@ -78,11 +73,6 @@ static int	get_exit_code(char *arg, bool *error)
 	return (i % 256);
 }
 
-/* is_quiet_mode:
-*	If exit is not called alone, it should not print "exit".
-*	Returns true if exit should not be printed. False if exit was called
-*	alone and the "exit" message should be printed.
-*/
 static bool	is_quiet_mode(t_data *data)
 {
 	t_command	*cmd;
@@ -95,14 +85,6 @@ static bool	is_quiet_mode(t_data *data)
 	return (false);
 }
 
-/* exit_builtin:
-*	Executes the exit builtin.
-*	If alone, prints exit and exits the shell with the provided exit code, or 0.
-*	If piped, exits the child process with the provided exit code and
-*	does not exit minishell.
-*	In case of failure due to invalid arguments, does not exit the shell
-*	and returns an error exit code (1 or 2) instead.
-*/
 int	exit_builtin(t_data *data, char **args)
 {
 	int		exit_code;

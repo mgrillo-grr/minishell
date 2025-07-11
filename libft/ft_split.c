@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 17:56:03 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/08 12:14:01 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/07/11 20:31:23 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/11 20:31:25 by mdios-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-	DESCRIPTION :
-	The function ft_split allocates and copies an array of strings by 
-	splitting the given string s using the given separator c.
-
-	RETURN VALUE :
-	An array of strings resulting from the split. NULL if the memory
-	allocation fails.
-*/
 
 static int	ft_count_words(const char *s, char c)
 {
