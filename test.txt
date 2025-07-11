@@ -1,0 +1,34 @@
+
+echo hola
+hola
+
+e"c"h"o" hola
+hola
+echo "$$"
+$
+
+echo "$?"
+LA SALIDA
+
+echo "$USER"
+mgrillo
+
+echo "'$USER'"
+'mgrillo'
+
+echo "1  2  3   4" | cat -e
+1  2  3   4$
+
+
+---- -n ----
+
+echo -n hola
+hola
+
+echo -nnnnn hola
+hola
+
+echo -nnnnn -n hola
+hola
+
+
