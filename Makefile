@@ -2,61 +2,61 @@
 NAME	= minishell
 
 # Compiler and compilation flags
-CC		= clang
+CC		= cc
 CFLAGS	= -Werror -Wextra -Wall -gdwarf-4 -g
 
 # Build files and directories
-SRC_PATH = ./sources/
-OBJ_PATH = ./objects/
+SRC_PATH = ./src/
+OBJ_PATH = ./obj/
 INC_PATH = ./includes/
 SRC		= 	main.c \
-			utils/init_data.c \
-			env/env.c \
-			env/env_set.c \
-			lexer/parse_user_input.c \
-			lexer/tokenization.c \
-			lexer/tokenization_utils.c \
-			lexer/check_if_var.c \
-			lexer/lexer_grammar.c \
-			lexer/token_lst_utils.c \
-			lexer/token_lst_utils_2.c \
-			expansion/var_expander.c \
-			expansion/var_expander_utils.c \
-			expansion/identify_var.c \
-			expansion/quotes_handler.c \
-			expansion/quotes_remover.c \
-			expansion/recover_value.c \
-			expansion/replace_var.c \
-			parser/create_commands.c \
-			parser/parse_word.c \
-			parser/fill_args_echo.c \
-			parser/fill_args_echo_utils.c \
-			parser/fill_args_default.c \
-			parser/parse_input.c \
-			parser/parse_trunc.c \
-			parser/parse_append.c \
-			parser/parse_heredoc.c \
-			parser/parse_heredoc_utils.c \
-			parser/parse_pipe.c \
-			parser/cmd_lst_utils.c \
-			parser/cmd_lst_utils_cleanup.c \
-			builtins/export_builtin.c \
-			builtins/unset_builtin.c \
-			builtins/cd_builtin.c \
-			builtins/env_builtin.c \
-			builtins/pwd_builtin.c \
-			builtins/echo_builtin.c \
-			builtins/exit_builtin.c \
-			execution/execute.c \
-			execution/execute_cmd.c \
-			execution/execute_utils.c \
-			execution/parse_path.c \
-			redirections/pipe.c \
-			redirections/file_io.c \
-			utils/exit.c \
-			utils/error.c \
-			utils/cleanup.c \
-			signals/signal.c \
+			utils_dg/init_data.c \
+			env_dg/env.c \
+			env_dg/env_set.c \
+			lexer_d/parse_user_input.c \
+			lexer_d/tokenization.c \
+			lexer_d/tokenization_utils.c \
+			lexer_d/check_if_var.c \
+			lexer_d/lexer_grammar.c \
+			lexer_d/token_lst_utils.c \
+			lexer_d/token_lst_utils_2.c \
+			expansion_d/var_expander.c \
+			expansion_d/var_expander_utils.c \
+			expansion_d/identify_var.c \
+			expansion_d/quotes_handler.c \
+			expansion_d/quotes_remover.c \
+			expansion_d/recover_value.c \
+			expansion_d/replace_var.c \
+			parser_d/create_commands.c \
+			parser_d/parse_word.c \
+			parser_d/fill_args_echo.c \
+			parser_d/fill_args_echo_utils.c \
+			parser_d/fill_args_default.c \
+			parser_d/parse_input.c \
+			parser_d/parse_trunc.c \
+			parser_d/parse_append.c \
+			parser_d/parse_heredoc.c \
+			parser_d/parse_heredoc_utils.c \
+			parser_d/parse_pipe.c \
+			parser_d/cmd_lst_utils.c \
+			parser_d/cmd_lst_utils_cleanup.c \
+			builtins_d/export_builtin.c \
+			builtins_d/unset_builtin.c \
+			builtins_d/cd_builtin.c \
+			builtins_d/env_builtin.c \
+			builtins_d/pwd_builtin.c \
+			builtins_d/echo_builtin.c \
+			builtins_d/exit_builtin.c \
+			execution_g/execute.c \
+			execution_g/execute_cmd.c \
+			execution_g/execute_utils.c \
+			execution_g/parse_path.c \
+			redirections_g/pipe.c \
+			redirections_g/file_io.c \
+			utils_dg/exit.c \
+			utils_dg/error.c \
+			utils_dg/cleanup.c \
+			signals_g/signal.c \
 			debug/debug.c
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
@@ -73,16 +73,15 @@ all: $(OBJ_PATH) $(LIBFT) $(NAME)
 # Objects directory rule
 $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
-	mkdir -p $(OBJ_PATH)/builtins
-	mkdir -p $(OBJ_PATH)/lexer
-	mkdir -p $(OBJ_PATH)/expansion
-	mkdir -p $(OBJ_PATH)/parser
-	mkdir -p $(OBJ_PATH)/testing
-	mkdir -p $(OBJ_PATH)/env
-	mkdir -p $(OBJ_PATH)/execution
-	mkdir -p $(OBJ_PATH)/utils
-	mkdir -p $(OBJ_PATH)/redirections
-	mkdir -p $(OBJ_PATH)/signals
+	mkdir -p $(OBJ_PATH)/builtins_d
+	mkdir -p $(OBJ_PATH)/lexer_d
+	mkdir -p $(OBJ_PATH)/expansion_d
+	mkdir -p $(OBJ_PATH)/parser_d
+	mkdir -p $(OBJ_PATH)/env_dg
+	mkdir -p $(OBJ_PATH)/execution_g
+	mkdir -p $(OBJ_PATH)/utils_dg
+	mkdir -p $(OBJ_PATH)/redirections_g
+	mkdir -p $(OBJ_PATH)/signals_g
 	mkdir -p $(OBJ_PATH)/debug
 
 # Objects rule
