@@ -81,7 +81,9 @@
 # define MSG_STDIN_BACKUP "stdin backup"
 # define MSG_STDOUT_BACKUP "stdout backup"
 # define MSG_CHILD "child"
-# define MSG_FATAL "Fatal"
+# define MSG_FATAL "fatal"
+# define MSG_WARNING "warning"
+
 
 /******************************************************************************
 *                            GLOBAL VARIABLE                                  *

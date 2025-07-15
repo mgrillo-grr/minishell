@@ -67,7 +67,7 @@ static bool	evaluate_heredoc_line(t_data *data, char **line,
 {
 	if (*line == NULL)
 	{
-		errmsg_cmd("warning", E_HEREDOC_EOF, io->heredoc_delimiter, false);
+		errmsg_cmd(MSG_WARNING, E_HEREDOC_EOF, io->heredoc_delimiter, false);
 		*ret = true;
 		return (false);
 	}
