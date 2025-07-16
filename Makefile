@@ -3,7 +3,7 @@ NAME	= minishell
 
 # Compiler and compilation flags
 CC		= cc
-CFLAGS	= -Werror -Wextra -Wall -gdwarf-4 -g
+CFLAGS	= -Werror -Wextra -Wall
 
 # Build files and directories
 SRC_PATH = ./src/
@@ -58,6 +58,7 @@ SRC		= 	main.c \
 			utils_dg/cleanup.c \
 			signals_g/signal.c \
 			debug/debug.c
+
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
@@ -67,44 +68,52 @@ INC		= -I $(INC_PATH) -I $(LIBFT_PATH)
 LIBFT_PATH = ./libft/
 LIBFT = ./libft/libft.a
 
+# Colores para mensajes bonitos
+GREEN = \033[1;32m
+RED = \033[1;31m
+RESET = \033[0m
+
 # Main rule
 all: $(OBJ_PATH) $(LIBFT) $(NAME)
 
 # Objects directory rule
 $(OBJ_PATH):
-	mkdir -p $(OBJ_PATH)
-	mkdir -p $(OBJ_PATH)/builtins_d
-	mkdir -p $(OBJ_PATH)/lexer_d
-	mkdir -p $(OBJ_PATH)/expansion_d
-	mkdir -p $(OBJ_PATH)/parser_d
-	mkdir -p $(OBJ_PATH)/env_dg
-	mkdir -p $(OBJ_PATH)/execution_g
-	mkdir -p $(OBJ_PATH)/utils_dg
-	mkdir -p $(OBJ_PATH)/redirections_g
-	mkdir -p $(OBJ_PATH)/signals_g
-	mkdir -p $(OBJ_PATH)/debug
+	@mkdir -p $(OBJ_PATH)
+	@mkdir -p $(OBJ_PATH)/builtins_d
+	@mkdir -p $(OBJ_PATH)/lexer_d
+	@mkdir -p $(OBJ_PATH)/expansion_d
+	@mkdir -p $(OBJ_PATH)/parser_d
+	@mkdir -p $(OBJ_PATH)/env_dg
+	@mkdir -p $(OBJ_PATH)/execution_g
+	@mkdir -p $(OBJ_PATH)/utils_dg
+	@mkdir -p $(OBJ_PATH)/redirections_g
+	@mkdir -p $(OBJ_PATH)/signals_g
+	@mkdir -p $(OBJ_PATH)/debug
 
 # Objects rule
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 # Project file rule
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC) $(LIBFT) -l readline
+$(NAME): $(OBJS) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LDFLAGS) -lreadline -o $(NAME)
+	@echo "[100%] $(GREEN)Compilation successful!$(RESET)"
 
 # Libft rule
 $(LIBFT):
-	make -C $(LIBFT_PATH)
+	@make -s -C $(LIBFT_PATH)
 
 # Clean up build files rule
 clean:
-	rm -rf $(OBJ_PATH)
-	make -C $(LIBFT_PATH) clean
+	@$(MAKE) -s clean -C $(LIBFT_PATH)
+	@$(RM) -rf $(OBJ_PATH)
+	@echo "[100%] $(RED)Cleaning object files...$(RESET)"
 
 # Remove program executable
 fclean: clean
-	rm -f $(NAME)
-	make -C $(LIBFT_PATH) fclean
+	@$(MAKE) -s fclean -C $(LIBFT_PATH)
+	@$(RM) -f $(NAME)
+	@echo "[100%] $(RED)Cleaning everything...$(RESET)"
 
 # Clean + remove executable
 re: fclean all

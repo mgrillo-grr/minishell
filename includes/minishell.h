@@ -1,14 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: <yourlogin> <youremail@student.42.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 00:00:00 by <yourlogin>       #+#    #+#             */
-/*   Updated: 2024/06/07 00:00:00 by <yourlogin>      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
+
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -46,7 +37,6 @@
 ******************************************************************************/
 # define MSG_MINISHELL_PREFIX "minishell: "
 # define USAGE_MINISHELL "Usage: ./minishell"
-# define USAGE_MINISHELL_C "Usage: ./minishell -c \"input line\""
 # define E_NOT_VALID_IDENTIFIER "not a valid identifier"
 # define E_TOO_MANY_ARGUMENTS "too many arguments"
 # define E_HOME_NOT_SET "HOME not set"
@@ -131,7 +121,6 @@ typedef struct s_command
 
 typedef struct s_data
 {
-	bool		interactive;
 	t_token		*token;
 	char		*user_input;
 	char		**env;

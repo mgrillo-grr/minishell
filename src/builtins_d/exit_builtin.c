@@ -93,7 +93,7 @@ int	exit_builtin(t_data *data, char **args)
 
 	quiet = is_quiet_mode(data);
 	error = false;
-	if (!quiet && data->interactive)
+	if (!quiet)
 		ft_putendl_fd(MSG_EXIT, 2);
 	if (!args || !args[1])
 		exit_code = g_last_exit_code;

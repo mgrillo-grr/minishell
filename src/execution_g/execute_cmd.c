@@ -1,22 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   execute_cmd.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/17 17:12:08 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/10/07 15:49:07 by mcombeau         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "minishell.h"
 
-/* execute_builtin:
-*	Executes the given command if it is a builtin command.
-*	Returns -1 if the command is not a builtin command.
-*	Returns 0 or 1 if the builtin command succeeded or failed.
-*/
 int	execute_builtin(t_data *data, t_command *cmd)
 {
 	int	ret;
@@ -39,13 +23,6 @@ int	execute_builtin(t_data *data, t_command *cmd)
 	return (ret);
 }
 
-/* execute_sys_bin:
-*	Executes the command's system binary file if it can be found
-*	among the environment executable paths.
-*	Returns CMD_NOT_FOUND if a path to the executable bin file cannot be
-*	found. Returns 1 in case of failure to run existing, executable
-*	file.
-*/
 static int	execute_sys_bin(t_data *data, t_command *cmd)
 {
 	if (!cmd->command || cmd->command[0] == '\0')
@@ -60,13 +37,6 @@ static int	execute_sys_bin(t_data *data, t_command *cmd)
 	return (EXIT_FAILURE);
 }
 
-/* execute_local_bin:
-*	Attempts to execute the given command as is, in case
-*	it is a local directory file or already contains the
-*	path to bin.
-*	Returns CMD_NOT_FOUND if the command is not an existing executable
-*	file. Returns 1 in case of failure to launch executable.
-*/
 static int	execute_local_bin(t_data *data, t_command *cmd)
 {
 	int	ret;
@@ -79,18 +49,6 @@ static int	execute_local_bin(t_data *data, t_command *cmd)
 	return (EXIT_FAILURE);
 }
 
-/* execute_command:
-*	Child process tries to execute the given command by setting
-*	its input/output fds and searching for an executable.
-*	Searching for executable in this order:
-*		1. Execute builtin command
-*		2. Execute system binaries for command.
-*		3. Execute given command name directly (local bin)
-*	If it cannot find a matching builtin or executable,
-*	prints an error message.
-*	Child exits with it's executed program's exit code, or 1 if
-*	it could not find one.
-*/
 int	execute_command(t_data *data, t_command *cmd)
 {
 	int	ret;

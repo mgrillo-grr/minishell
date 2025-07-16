@@ -1,21 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   execute_utils.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 17:28:59 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/11/04 17:27:57 by mcombeau         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "minishell.h"
 
-/* cmd_is_dir:
-*	Checks if the command is a directory rather than an executable.
-*	Returns true if the command is a directory, false if not.
-*/
 bool	cmd_is_dir(char *cmd)
 {
 	struct stat	cmd_stat;
@@ -25,12 +10,6 @@ bool	cmd_is_dir(char *cmd)
 	return (S_ISDIR(cmd_stat.st_mode));
 }
 
-/* check_command_not_found:
-*	Searches for the reason a command was not found in the system binaries.
-*	Returns an error message and status if the command is invalid,
-*	returns EXIT_SUCCESS if the command is valid and should be executed
-*	as a local executable.
-*/
 int	check_command_not_found(t_data *data, t_command *cmd)
 {
 	if (ft_strchr(cmd->command, '/') == NULL

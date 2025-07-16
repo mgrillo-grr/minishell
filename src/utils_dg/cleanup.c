@@ -1,21 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cleanup.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/17 19:05:55 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/11/04 17:24:24 by mcombeau         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "minishell.h"
 
-/* free_data:
-*	Frees all of the data used to run a command. If clear_history is true,
-*	frees the environment and the command history before returning.
-*/
 void	free_data(t_data *data, bool clear_history)
 {
 	if (data && data->user_input)
@@ -39,11 +24,6 @@ void	free_data(t_data *data, bool clear_history)
 	}
 }
 
-/* close_fds:
-*	Closes opened file descriptors, including pipes and input and
-*	output fds. If close_backups is set to true, it also closes
-*	backup STDIN and STDOUT file descriptors.
-*/
 void	close_fds(t_command *cmds, bool close_backups)
 {
 	if (cmds->io_fds)
@@ -79,9 +59,6 @@ void	free_io(t_io_fds *io)
 		free_ptr(io);
 }
 
-/* free_str_tab:
-*	Frees an array of strings.
-*/
 void	free_str_tab(char **tab)
 {
 	int	i;
@@ -103,10 +80,6 @@ void	free_str_tab(char **tab)
 	}
 }
 
-/* free_ptr:
-*	Frees a pointer of any type if it is not NULL and sets it to NULL.
-*	This avoids accidental double-frees.
-*/
 void	free_ptr(void *ptr)
 {
 	if (ptr != NULL)
