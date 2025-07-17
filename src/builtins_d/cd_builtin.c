@@ -29,6 +29,10 @@ static void	update_wds(t_data *data, char *wd)
 	free_ptr(wd);
 }
 
+/*
+** Muestra un error formateado para cd usando strerror.
+** Convierte el error ESTALE a ENOENT para mayor claridad.
+*/
 static	bool	chdir_errno_mod(char *path)
 {
 	if (errno == ESTALE)
@@ -37,6 +41,10 @@ static	bool	chdir_errno_mod(char *path)
 	return (false);
 }
 
+/*
+** Realiza el cambio de directorio usando chdir.
+** Actualiza las variables PWD y OLDPWD tras el cambio.
+*/
 static bool	change_dir(t_data *data, char *path)
 {
 	char	*ret;
@@ -63,6 +71,10 @@ static bool	change_dir(t_data *data, char *path)
 	return (true);
 }
 
+/*
+** Función principal del builtin 'cd' que gestiona sus argumentos.
+** Maneja casos especiales como 'cd', 'cd -' y 'cd --'.
+*/
 int	cd_builtin(t_data *data, char **args)
 {
 	char	*path;

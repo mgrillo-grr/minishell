@@ -12,6 +12,10 @@
 
 #include "minishell.h"
 
+/*
+** Comprueba si un carácter es válido para un nombre de variable.
+** Un carácter es válido si es alfanumérico o guion bajo.
+*/
 bool	is_var_compliant(char c)
 {
 	if (ft_isalnum(c) == 0 && c != '_')
@@ -20,6 +24,10 @@ bool	is_var_compliant(char c)
 		return (true);
 }
 
+/*
+** Calcula la longitud del nombre de una variable que empieza con '$'.
+** Maneja casos especiales como '$?' o variables que inician con número.
+*/
 int	var_length(char *str)
 {
 	int		i;
@@ -42,6 +50,10 @@ int	var_length(char *str)
 	return (count);
 }
 
+/*
+** Extrae el nombre de la variable de una cadena que empieza con '$'.
+** Devuelve una subcadena con el nombre (ej: "USER" de "$USER-info").
+*/
 char	*identify_var(char *str)
 {
 	char	*var;

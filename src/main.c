@@ -23,11 +23,10 @@ static bool	start_check(t_data *data, int ac, char **av)
 
 void	minishell_start(t_data *data)
 {
-	int parse_result;
+	int	parse_result;
 
 	while (1)
 	{
-		
 		set_signals_interactive();
 		data->user_input = readline(PROMPT);
 		set_signals_noninteractive();

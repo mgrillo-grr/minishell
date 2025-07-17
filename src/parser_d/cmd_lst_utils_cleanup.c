@@ -12,6 +12,10 @@
 
 #include "minishell.h"
 
+/*
+** Libera la memoria de un único nodo de la lista de comandos.
+** Libera todos sus componentes internos (args, fds, etc.).
+*/
 void	lst_delone_cmd(t_command *lst, void (*del)(void *))
 {
 	if (lst->command)
@@ -25,6 +29,10 @@ void	lst_delone_cmd(t_command *lst, void (*del)(void *))
 	(*del)(lst);
 }
 
+/*
+** Libera la memoria de toda la lista de comandos.
+** Usa lst_delone_cmd para borrar cada nodo de la lista.
+*/
 void	lst_clear_cmd(t_command **lst, void (*del)(void *))
 {
 	t_command	*temp;

@@ -48,6 +48,10 @@ static int	ft_atoi_long(const char *str, bool *error)
 	return (num * neg);
 }
 
+/*
+** Convierte y valida el argumento numérico de exit.
+** Devuelve el código de salida como un entero (0-255).
+*/
 static int	get_exit_code(char *arg, bool *error)
 {
 	unsigned long long	i;
@@ -73,6 +77,10 @@ static int	get_exit_code(char *arg, bool *error)
 	return (i % 256);
 }
 
+/*
+** Comprueba si exit se ejecuta en un pipeline.
+** Suprime el mensaje "exit" si hay más de un comando.
+*/
 static bool	is_quiet_mode(t_data *data)
 {
 	t_command	*cmd;
@@ -85,6 +93,10 @@ static bool	is_quiet_mode(t_data *data)
 	return (false);
 }
 
+/*
+** Función principal del builtin 'exit', que termina la minishell.
+** Gestiona el código de salida y los errores de argumentos.
+*/
 int	exit_builtin(t_data *data, char **args)
 {
 	int		exit_code;

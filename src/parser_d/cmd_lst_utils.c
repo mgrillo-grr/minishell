@@ -12,6 +12,10 @@
 
 #include "minishell.h"
 
+/*
+** Inicializa a NULL o false los campos de un nuevo t_command.
+** Asegura que no haya valores basura al crear un nodo.
+*/
 static void	initialize_cmd(t_command **cmd)
 {
 	(*cmd)->command = NULL;
@@ -23,6 +27,10 @@ static void	initialize_cmd(t_command **cmd)
 	(*cmd)->next = NULL;
 }
 
+/*
+** Crea y reserva memoria para un nuevo nodo t_command.
+** Inicializa sus valores por defecto con initialize_cmd.
+*/
 t_command	*lst_new_cmd(bool value)
 {
 	t_command	*new_node;
@@ -36,6 +44,10 @@ t_command	*lst_new_cmd(bool value)
 	return (new_node);
 }
 
+/*
+** Añade un nuevo nodo de comando al final de la lista.
+** Maneja el caso en que la lista esté vacía.
+*/
 void	lst_add_back_cmd(t_command **alst, t_command *new_node)
 {
 	t_command	*start;
@@ -55,6 +67,10 @@ void	lst_add_back_cmd(t_command **alst, t_command *new_node)
 	}
 }
 
+/*
+** Devuelve un puntero al último nodo de la lista de comandos.
+** Permite acceder rápidamente al final de la lista.
+*/
 t_command	*lst_last_cmd(t_command *cmd)
 {
 	while (cmd->next != NULL)

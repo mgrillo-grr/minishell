@@ -12,6 +12,10 @@
 
 #include "minishell.h"
 
+/*
+** Comprueba si un argumento es una flag -n válida (ej: -n, -nnn).
+** Devuelve true si es una flag -n, y false en caso contrario.
+*/
 static bool	is_n_flag(char *arg)
 {
 	int		i;
@@ -29,6 +33,10 @@ static bool	is_n_flag(char *arg)
 	return (n_flag);
 }
 
+/*
+** Imprime los argumentos de echo desde un índice dado.
+** Gestiona los espacios y el salto de línea final (si no hay flag -n).
+*/
 static void	echo_print_args(char **args, bool n_flag, int i)
 {
 	if (!args[i])
@@ -48,6 +56,10 @@ static void	echo_print_args(char **args, bool n_flag, int i)
 	}
 }
 
+/*
+** Función principal del builtin 'echo'.
+** Imprime argumentos, gestionando la flag -n para omitir el salto de línea.
+*/
 int	echo_builtin(t_data *data, char **args)
 {
 	int		i;

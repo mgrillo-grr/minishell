@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execute.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdios-el <mdios-el@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/17 13:21:12 by mdios-el          #+#    #+#             */
+/*   Updated: 2025/07/17 13:21:36 by mdios-el         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "minishell.h"
 
@@ -19,7 +30,8 @@ static int	get_children(t_data *data)
 			save_status = status;
 		continue ;
 	}
-	if (WIFSIGNALED(save_status)) {
+	if (WIFSIGNALED(save_status))
+	{
 		if (WTERMSIG(save_status) == SIGINT)
 			write(1, "\n", 1);
 		status = 128 + WTERMSIG(save_status);

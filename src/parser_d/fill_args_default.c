@@ -25,7 +25,6 @@ int	count_arguments(t_token *temp)
 	return (i);
 }
 
-
 int	create_args_default_mode(t_token **token_node, t_command *last_cmd)
 {
 	int		i;

@@ -12,6 +12,10 @@
 
 #include "minishell.h"
 
+/*
+** Comprueba si un token contiene '$' y le asigna el tipo VAR.
+** Ignora la expansión para delimitadores de heredoc.
+*/
 static void	variable_check(t_token **token_node)
 {
 	int	i;
@@ -30,6 +34,10 @@ static void	variable_check(t_token **token_node)
 	}
 }
 
+/*
+** Recorre la lista de tokens para identificar los que tienen variables.
+** También valida la sintaxis de operadores consecutivos.
+*/
 int	check_if_var(t_token **token_lst)
 {
 	t_token	*temp;
