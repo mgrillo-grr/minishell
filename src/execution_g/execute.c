@@ -19,8 +19,11 @@ static int	get_children(t_data *data)
 			save_status = status;
 		continue ;
 	}
-	if (WIFSIGNALED(save_status))
+	if (WIFSIGNALED(save_status)) {
+		if (WTERMSIG(save_status) == SIGINT)
+			write(1, "\n", 1);
 		status = 128 + WTERMSIG(save_status);
+	}
 	else if (WIFEXITED(save_status))
 		status = WEXITSTATUS(save_status);
 	else
@@ -39,7 +42,11 @@ static int	create_children(t_data *data)
 		if (data->pid == -1)
 			return (errmsg_cmd(MSG_FORK, NULL, strerror(errno), EXIT_FAILURE));
 		else if (data->pid == 0)
+		{
+			signal(SIGINT, SIG_DFL);
+			signal(SIGQUIT, SIG_DFL);
 			execute_command(data, cmd);
+		}
 		cmd = cmd->next;
 	}
 	return (get_children(data));

@@ -32,3 +32,22 @@ echo -nnnnn -n hola
 hola
 
 
+// Pipe
+
+ls | grep minishell
+
+echo hola | cat -e
+
+// Redirecciones
+
+cat > out.txt
+cat >> out.txt
+
+cat << EOF
+
+export:::
+
+export VAR=hola
+cat << end
+$VAR mundo
+end

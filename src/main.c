@@ -23,13 +23,19 @@ static bool	start_check(t_data *data, int ac, char **av)
 
 void	minishell_start(t_data *data)
 {
+	int parse_result;
+
 	while (1)
 	{
+		
 		set_signals_interactive();
 		data->user_input = readline(PROMPT);
 		set_signals_noninteractive();
-		if (parse_user_input(data) == true)
+		parse_result = parse_user_input(data);
+		if (parse_result == 1)
 			g_last_exit_code = execute(data);
+		else if (parse_result == 0)
+			g_last_exit_code = 0;
 		else
 			g_last_exit_code = 1;
 		free_data(data, false);

@@ -21,8 +21,10 @@ void minishell_start(t_data *data)
 		set_signals_noninteractive(); // Configura señales para modo no interactivo (procesando comando)
 		if (parse_user_input(data) == true) // Analiza el comando ingresado
 			g_last_exit_code = execute(data); // Si es válido, ejecuta y guarda el exit code
+		else if (parse_result == 0)
+			g_last_exit_code = 0;
 		else
-			g_last_exit_code = 1; // Si es inválido, exit code de error
+			g_last_exit_code = 1;
 		free_data(data, false); // Libera memoria asociada al comando actual
 	}
 }
